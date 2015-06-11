@@ -1,0 +1,15 @@
+{
+    "name": "devdrops/mastering-spl",
+    "authors": [
+        {
+            "name": "Davi Marcondes Moreira",
+            "email": "davi.marcondes.moreira@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+    	"psr-0": {
+    		"Introduction": "src/"
+    	}
+    }
+}
