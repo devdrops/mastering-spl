@@ -17,7 +17,9 @@ class AssociateArray
     }
 
     /**
-     * Method complexity O(n). It depends on _findIndex().
+     * Method complexity O(n).
+     *
+     * It depends on _findIndex().
      */
     public function del($key)
     {
@@ -29,7 +31,9 @@ class AssociateArray
     }
 
     /**
-     * Method complexity O(n). It depends on _findIndex().
+     * Method complexity O(n).
+     *
+     * It depends on _findIndex().
      */
     public function get($key)
     {
@@ -43,7 +47,7 @@ class AssociateArray
     }
 
     /**
-     * Method complexity O(n)
+     * Method complexity O(n) [Linear Complexity]
      * (n) is a linear complexity: if the ammount of elements doubles, it doubles the time to execute.
      *
      * BUT, if we only have a single element, the complexity turns to be Theta(1): it contains both the 
