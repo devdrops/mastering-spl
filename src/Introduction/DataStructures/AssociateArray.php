@@ -7,8 +7,9 @@ class AssociateArray
     protected $_elements;
 
     /**
-     * Method complexity: O(1)
+     * Method complexity: O(1) [Constant Time Complexity]
      * It doesn't matter how much elements we have, the time for execution will always stay the same.
+     * It doesn't mean in any ways that this function is always the fastest, neither the slowest.
      */
     public function set($key, $value)
     {
