@@ -21,6 +21,6 @@ class Main
      */
     public function getElements()
     {
-        return $this->_elements;
+        return $this->_nodeElements;
     }
 }
