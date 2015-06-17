@@ -24,7 +24,7 @@ for ($i = 0; $i < 10; $i++) {
 
 foreach($main->getElements() as $element) {
     foreach($element as $item) {
-        // A quadratic complexity can be found where you have an loop over another loop. 
+        // A quadratic complexity can be found where you have a loop over another loop. 
         // This makes that if the first loop have 10 itens, and each of these itens have
         // 10 another itens, you'll find yourself in a complexity of 10 * 10 = 100 iterations!
         //
