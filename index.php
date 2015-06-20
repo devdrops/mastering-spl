@@ -12,9 +12,9 @@ require_once __DIR__ . '/vendor/autoload.php';
  *    creation;
  *  - Both top() and bottom() are not affected by the choosen ITERATOR MODE, but
  *     only for the itens creation sequence;
- *  - When in DELETE MODE, after an iteration, both top() and bottom() will 
- *    raise a RuntimeException when called, with the message: 'Can't peek at an 
- *    empty datastructure'.
+ *  - When in DELETE MODE, after a complete iteration, both top() and bottom() 
+ *    will raise a RuntimeException when called, with the message: 'Can't peek 
+ *    at an empty datastructure'.
  *  - We can combine the ITERATOR MODE, even with 2 values at the same time. 
  *    However, if we set both LIFO|FIFO, or FIFO|LIFO, LIFO will be settled - 
  *    even knowing that FIFO is the default (lolwut???).
