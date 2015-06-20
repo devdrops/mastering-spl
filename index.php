@@ -11,7 +11,7 @@ require_once __DIR__ . '/vendor/autoload.php';
  *  - We can set the ITERATOR MODE whenever we want: before or after the object 
  *    creation;
  *  - Both top() and bottom() are not affected by the choosen ITERATOR MODE, but
- *     only for the itens creation sequence;
+ *     only for the itens creation sequence; count() still works fine.
  *  - When in DELETE MODE, after a complete iteration, both top() and bottom() 
  *    will raise a RuntimeException when called, with the message: 'Can't peek 
  *    at an empty datastructure'.
