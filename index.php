@@ -31,3 +31,19 @@ $stack->setIteratorMode(\SplStack::IT_MODE_FIFO);
 foreach($stack as $element) {
     var_dump($element);
 }
+
+$calculator = new \MasteringSpl\Calculator();
+
+// This will calculate: (((3 * 4) + 4) - 2) / 2) = 7
+$calculator->push("divide");
+$calculator->push(2);
+$calculator->push("subtract");
+$calculator->push(2);
+$calculator->push("add");
+$calculator->push(4);
+$calculator->push("multiply");
+$calculator->push(3);
+$calculator->push(4);
+$calculator->calculate();
+
+var_dump('RESULT: '.$calculator->pop());
