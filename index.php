@@ -1,39 +1,48 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
-
-/**
- * The SplQueue class
- * 
- * - Just like the SplStack class, we can find the same bug: once 
- *   you've already added values to the queue, you can change the
- *   iterator mode from FIFO to LIFO. Geez...
- */
-
 $queue = new \SplQueue();
+$queue->setIteratorMode(IT_MODE_FIFO|IT_MODE_KEEP);
 
-$queue->setIteratorMode(\SplDoublyLinkedList::IT_MODE_FIFO);
-for ($i = 0; $i < 10; $i++) {
-    $queue->enqueue('elem'.$i);
-}
-foreach($queue as $element) {
-    var_dump($element);
+for ($i = 0; $i < 15; $i++){
+    $queue->enqueue($i);
 }
 
-for ($i = 0; $i < 10; $i++) {
-    $queue->dequeue();
-}
-foreach($queue as $element) {
-    var_dump($element);
+foreach($queue as $item) {
+    var_dump($item);
 }
 
-/*
-$queue->setIteratorMode(\SplDoublyLinkedList::IT_MODE_LIFO);
-for ($i = 0; $i < 10; $i++) {
-    $queue->enqueue('elem'.$i);
-}
-foreach($queue as $element) {
-    var_dump($element);
-}
-*/
+var_dump('COUNT: '.$queue->count());
 
+
+
+$queue2 = new \SplQueue();
+$queue2->setIteratorMode(IT_MODE_FIFO|IT_MODE_DELETE);
+
+for ($i = 0; $i < 15; $i++){
+    $queue2->enqueue($i);
+}
+
+foreach($queue2 as $item) {
+    var_dump($item);
+}
+
+var_dump('COUNT: '.$queue2->count());
+
+
+
+$queue3 = new \SplQueue();
+$queue3->setIteratorMode(IT_MODE_FIFO|IT_MODE_DELETE);
+
+for ($i = 0; $i < 15; $i++){
+    $queue3->enqueue($i);
+}
+
+foreach($queue3 as $item) {
+    $queue3->dequeue();
+    
+    var_dump('COUNT: '.$queue3->count());
+}
+
+var_dump('COUNT: '.$queue3->count());
+$queue3->dequeue();
+var_dump('COUNT: '.$queue3->count());
