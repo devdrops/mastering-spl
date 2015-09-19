@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * SplQueue
+ * 
+ *  - Only dequeue() can remove itens, even if the object was created using
+ *    IT_MODE_DELETE and then put into a foreach() loop through each value.
+ */
+
 $queue = new \SplQueue();
 $queue->setIteratorMode(IT_MODE_FIFO|IT_MODE_KEEP);
 
@@ -11,6 +18,8 @@ foreach($queue as $item) {
     var_dump($item);
 }
 
+var_dump('COUNT: '.$queue->count());
+$queue->dequeue();
 var_dump('COUNT: '.$queue->count());
 
 
