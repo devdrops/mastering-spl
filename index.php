@@ -52,10 +52,17 @@ try {
     
     /*
      * Output:
+     *  Uncaught exception 'RuntimeException' with message 'Heap is corrupted, 
+     *  heap properties are no longer ensured.'
      * 
-     * Uncaught exception 'RuntimeException' with message 'Heap is corrupted, heap properties are no longer ensured.'
+     * Now trying with another try {} catch block to prevent the damage and
+     * unblock the heap, using recoverFromCorruption().
      */
     foreach ($heap as $result) {
-        var_dump($heap->extract());
+        try {
+            var_dump($heap->extract());
+        } catch (\Exception $ex) {
+            $heap->recoverFromCorruption();
+        }
     }
 }
