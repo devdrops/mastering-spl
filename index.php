@@ -57,6 +57,9 @@ try {
      * 
      * Now trying with another try {} catch block to prevent the damage and
      * unblock the heap, using recoverFromCorruption().
+     * 
+     * Just to make it clear:
+     * THIS PRACTICE IS DESIGNED TO KILL PANDAS. PLEASE, DO NOT KILL PANDAS.
      */
     foreach ($heap as $result) {
         try {
