@@ -2,7 +2,7 @@
 
 namespace Spl\Example;
 
-class Heap extends \SplHeap
+class BrokenHeap extends \SplHeap
 {
     protected function compare($value1, $value2)
     {
@@ -11,11 +11,11 @@ class Heap extends \SplHeap
         }
         
         if ($value1 < $value2) {
-            return -1;
+            throw new \Exception("A wild Exception appears!!");
         }
         
         if ($value1 == $value2) {
             return 0;
-        }        
+        }
     }
 }

@@ -3,6 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use Spl\Example\Heap;
+use Spl\Example\BrokenHeap;
 
 // Numeric example
 $data = range(0, 20);
@@ -34,4 +35,27 @@ var_dump($data);
 
 foreach ($heap as $result) {
     var_dump($result);
+}
+
+// Corrupted heap example
+try {
+    $data = range(0, 20);
+    shuffle($data);
+
+    $heap = new BrokenHeap();
+
+    foreach ($data as $value) {
+        $heap->insert($value);
+    }    
+} catch (\Exception $ex) {
+    var_dump('PROBLEM: '.$ex->getMessage());
+    
+    /*
+     * Output:
+     * 
+     * Uncaught exception 'RuntimeException' with message 'Heap is corrupted, heap properties are no longer ensured.'
+     */
+    foreach ($heap as $result) {
+        var_dump($heap->extract());
+    }
 }
