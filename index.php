@@ -4,6 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Spl\Example\Heap;
 use Spl\Example\BrokenHeap;
+use Spl\Example\AgeHeap;
 
 // Numeric example
 $data = range(0, 20);
@@ -68,4 +69,17 @@ try {
             $heap->recoverFromCorruption();
         }
     }
+}
+
+// Book example: the AgeHeap
+$ageHeap = new AgeHeap();
+
+$ageHeap->insert(['name' => 'John Doe', 'age' => 33]);
+$ageHeap->insert(['name' => 'Joseph Potatoes', 'age' => 30]);
+$ageHeap->insert(['name' => 'Ernest le Vampire', 'age' => 300]);
+$ageHeap->insert(['name' => 'Conan the Barbarian', 'age' => 53]);
+$ageHeap->insert(['name' => 'Eek the Cat', 'age' => 30]);
+
+foreach ($ageHeap as $item) {
+    var_dump($item['name']." is ".$item['age']." year old");
 }
